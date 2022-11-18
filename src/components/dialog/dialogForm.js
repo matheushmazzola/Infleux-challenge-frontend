@@ -28,7 +28,7 @@ export default function FormDialog(props) {
   };
 
   const handleEditCampaigns = () => {
-    Axios.put(`http://localhost:3001/campaigns/edit?_id=${editValues.id}`, {
+    Axios.put(`https://infleux-challenge-api.herokuapp.com//campaigns/edit?_id=${editValues.id}`, {
       campaign_name: editValues.campaign_name,
       advertiser: editValues.advertiser,
       country: editValues.country,
@@ -41,7 +41,7 @@ export default function FormDialog(props) {
 
   const handleDeleteCampaigns = () => {
     console.log(editValues)
-    Axios.delete(`http://localhost:3001/campaigns/delete?_id=${editValues.id}`).then(() => {
+    Axios.delete(`https://infleux-challenge-api.herokuapp.com//campaigns/delete?_id=${editValues.id}`).then(() => {
     });
     handleClose();
   };

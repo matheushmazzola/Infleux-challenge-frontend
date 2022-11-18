@@ -15,7 +15,7 @@ export default function App() {
       }else{
         data = values.country;
       }
-      Axios.get(`http://localhost:3001/fetch?country=${data}`, ).then((response) => {
+      Axios.get(`https://infleux-challenge-api.herokuapp.com/fetch?country=${data}`, ).then((response) => {
           if(response.data.campaign){ 
             setListFetch([...listFetch,
               {
@@ -32,14 +32,14 @@ export default function App() {
     };
 
   const handleCreate = () => {
-    Axios.post("http://localhost:3001/campaigns/create", {
+    Axios.post("https://infleux-challenge-api.herokuapp.com//campaigns/create", {
       campaign_name: values.campaign_name,
       advertiser: values.advertiser,
       country: values.country,
       conversion: values.conversion,
       bid: values.bid,
     }).then(() => {
-      Axios.get("http://localhost:3001/campaigns/find", {
+      Axios.get("https://infleux-challenge-api.herokuapp.com//campaigns/find", {
         id: values._id,
         campaign_name: values.campaign_name,
         advertiser: values.advertiser,
@@ -62,7 +62,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/campaigns/find").then((response) => {
+    Axios.get("https://infleux-challenge-api.herokuapp.com//campaigns/find").then((response) => {
       setListCampaigns(response.data.campaign);
     });
   }, []);
